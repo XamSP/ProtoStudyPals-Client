@@ -1,16 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule } from "@angular/router";
+import { routes } from './app.routing';
+import { HttpModule } from '@angular/http';
+import { FileUploadModule } from "ng2-file-upload";
+import { FormsModule } from "@angular/forms";
+//import { FileSelectDirective } from "ng2-file-upload";
+import { ProfileComponent } from './profile/profile.component';
+import { SessionService } from './services/session.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthComponent } from './auth/auth.component'
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    ProfileComponent,
+    AuthComponent,
+    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    HttpModule,
+    FormsModule,
+    FileUploadModule
   ],
-  providers: [],
+  providers: [SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
-import { SessionService } from "./services/session.service";
-
+import { Component, OnInit } from '@angular/core';
+import { SessionService } from "../services/session.service";
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-auth',
+  templateUrl: './auth.component.html',
+  styleUrls: ['./auth.component.css'],
+  providers:[SessionService],
 })
-
-export class AppComponent {
+export class AuthComponent implements OnInit {
   formInfo:any = {
     username: '',
     password: ''
@@ -18,13 +18,15 @@ export class AppComponent {
   error: string;
   privateData: any = '';
 
-  constructor(private session: SessionService) { }
+  constructor(private router: Router, private session: SessionService) { }
 
   ngOnInit() {
     this.session.isLoggedIn()
       .subscribe(
         (user) => this.successCb(user)
       );
+
+        
   }
 
   login() {
@@ -33,7 +35,7 @@ export class AppComponent {
         (user) => this.successCb(user),
         (err) => this.errorCb(err)
       );
-  }
+      this.router.navigate(['/board']);   }
 
   signup() {
     this.session.signup(this.formInfo)
