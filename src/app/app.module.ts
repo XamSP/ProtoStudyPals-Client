@@ -5,12 +5,15 @@ import { routes } from './app.routing';
 import { HttpModule } from '@angular/http';
 import { FileUploadModule } from "ng2-file-upload";
 import { FormsModule } from "@angular/forms";
+
 //import { FileSelectDirective } from "ng2-file-upload";
 import { ProfileComponent } from './profile/profile.component';
 import { SessionService } from './services/session.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component'
 import { AppComponent } from './app.component';
+import { SignupComponent } from './signup/signup.component';
+import { SessionsComponent } from './sessions/sessions.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,8 @@ import { AppComponent } from './app.component';
     DashboardComponent,
     ProfileComponent,
     AuthComponent,
+    SignupComponent,
+    SessionsComponent,
     
   ],
   imports: [

@@ -3,57 +3,53 @@ import { SessionService } from "../services/session.service";
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-auth',
-  templateUrl: './auth.component.html',
-  styleUrls: ['./auth.component.css'],
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css'],
   providers:[SessionService],
 })
-export class AuthComponent implements OnInit {
-  formInfo:any = {
+export class SignupComponent implements OnInit {
+
+  formSignUp:any = {
     username: '',
-    password: ''
+    password: '',
+    confirmPassword: '',
+    firstName: '',
+    lastName: '',
+    role: 'User',
+    gender: '',
+    age: '',
+    location: {
+        country: '',
+        state: '',
+        city: '',
+        address: '',
+        zipcode: ''
+    },
+    email: '',
+    imgName: '',
+    imgPath: '',
+    rating: 4,
+    about: '',
   };
   
   user: any;
   error: string;
   privateData: any = '';
-  signupform: boolean;
 
   constructor(private router: Router, private session: SessionService) { }
 
   ngOnInit() {
-    this.session.isLoggedIn()
-      .subscribe(
-        (user) => this.successCb(user)
-      );
-
-    this.signupform === false;   
   }
 
-  signupFormDisplay(){
-    if (this.signupform === true) {
-      return this.signupform = false;
-    } else {
-      return this.signupform = true;
-    }
-  }
-
-  login() {
-    this.session.login(this.formInfo)
+  signup() {
+    this.session.signup(this.formSignUp)
       .subscribe(
         (user) => this.successCb(user),
         (err) => this.errorCb(err)
       );
-   }
-
-  logout() {
-    this.session.logout()
-      .subscribe(
-        () => this.successCb(null),
-        (err) => this.errorCb(err)
-      );
   }
-  
+
   getPrivateData() {
     this.session.getPrivateData()
       .subscribe(
@@ -71,4 +67,5 @@ export class AuthComponent implements OnInit {
     this.user = user;
     this.error = null;
   }
+
 }

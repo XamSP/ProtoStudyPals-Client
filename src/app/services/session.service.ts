@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {map, catchError} from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs'; 
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +18,7 @@ export class SessionService {
   }
 
   signup(user) {
+    console.log(user);
     return this.http.post(`${this.mainURL}/signup`, user).pipe(map(res => res.json()),catchError(this.handleError));
   }
 

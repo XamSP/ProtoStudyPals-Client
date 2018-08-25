@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SessionService } from '../services/session.service';
 
 @Component({
@@ -9,8 +9,7 @@ import { SessionService } from '../services/session.service';
 })
 
 export class DashboardComponent implements OnInit {
-
-  user: any;
+  @Input() user: any;
   error: string;
   privateData: any = '';
 
