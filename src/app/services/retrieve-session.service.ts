@@ -8,7 +8,7 @@ import { Observable, throwError } from 'rxjs';
 })
 export class RetrieveSessionService {
   angURL: string = "http://localhost:4200";
-  apiURL:string = "http://localhost:3000";
+  apiURL: string = "http://localhost:3000";
 
   constructor(private http: Http) { }
 
@@ -17,7 +17,25 @@ export class RetrieveSessionService {
   }
 
   retrieveSession() {
-    return this.http.get(`${this.apiURL}/signup`).pipe(map(res => res.json()),catchError(this.handleError));
+    return this.http.get(`${this.apiURL}/session/`).pipe(map(res => res.json()),catchError(this.handleError));
   }
 
+  retrieveSubjects() {
+    //console.log(this.http.get(`${this.apiURL}/subtags/subject`).pipe(map(res => res.json()),catchError(this.handleError)));
+  
+    return this.http.get(`${this.apiURL}/subtags/subject`).pipe(map(res => res.json()),catchError(this.handleError));
+  }
+
+  retrieveSubjectId(id) {
+    return this.http.get(`${this.apiURL}/subtags/subject/${id}`).pipe(map(res => res.json()),catchError(this.handleError));
+  }
+
+  retrieveTags(){
+    return this.http.get(`${this.apiURL}/subtags/tag`).pipe(map(res => res.json()),catchError(this.handleError));
+  }
+
+  createSession(session, user) {
+    console.log(session);
+    return this.http.post(`${this.apiURL}/session/create`, {session, user}).pipe(map(res => res.json()),catchError(this.handleError));
+  }
 }
