@@ -14,6 +14,8 @@ import { AuthComponent } from './auth/auth.component'
 import { AppComponent } from './app.component';
 import { SignupComponent } from './signup/signup.component';
 import { SessionsComponent } from './sessions/sessions.component';
+import { MessengerComponent } from './messenger/messenger.component';
+import { SessionFormComponent } from './session-form/session-form.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { SessionsComponent } from './sessions/sessions.component';
     AuthComponent,
     SignupComponent,
     SessionsComponent,
+    MessengerComponent,
+    SessionFormComponent,
     
   ],
   imports: [

@@ -1,5 +1,10 @@
+<!-- put query bar here -->
 <div>
   <h2> You are now logged in as {{ user.username }}!! </h2>
-  <p> Here's the user object </p>
   <pre> {{ user | json }} </pre>
 </div>
+
+<br>
+<app-sessions [user]="user"></app-sessions>
+<app-messenger [user]="user"></app-messenger>
+<app-profile [user]="user"></app-profile>
