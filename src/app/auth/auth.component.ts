@@ -22,10 +22,10 @@ export class AuthComponent implements OnInit {
   constructor(private router: Router, private session: SessionService) { }
 
   ngOnInit() {
-    this.session.isLoggedIn()
-      .subscribe(
-        (user) => this.successCb(user)
-      );
+    // this.session.isLoggedIn()
+    //   .subscribe(
+    //     (user) => this.successCb(user)
+    //   );
 
     this.signupform === false;   
   }

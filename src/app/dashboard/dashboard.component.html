@@ -1,8 +1,8 @@
 <!-- put query bar here -->
 <div>
   <h2> You are now logged in as {{ user.username }}!! </h2>
-  <pre> {{ user | json }} </pre>
 </div>
+<app-session-board [user]="user"></app-session-board>
 
 <br>
 <app-sessions [user]="user"></app-sessions>

@@ -1,0 +1,43 @@
+<div *ngFor="let currentSession of sessions">
+    <h4>{{currentSession.title}}</h4>
+    <div *ngFor="let subject of currentSession.subjects">
+        <h5>{{subject.title}}</h5>
+    </div>
+    <h4>{{currentSession.host.username}}</h4>
+    <div *ngFor="let user of currentSession.usersAttending">
+        <h5>{{user.username}}</h5>
+    </div>
+    <div *ngIf="user._id == currentSession.host._id">
+        <div *ngFor="let reqUser of currentSession.requestsFromUsers">
+            <h5>{{ reqUser.username }}</h5>
+        </div>        
+    </div>
+    <p>{{currentSession.description}}</p>
+    <div *ngIf="currentSession.tags">
+        <ul  *ngFor="let tag of currentSession.tags">
+            <li>{{tag}}</li>
+        </ul>
+    </div>
+    <!-- Add pipe for Date -->
+    <div *ngIf="currentSession.dateOfSession">
+        <p>{{currentSession.dateOfSession }}</p>        
+    </div>
+    <!-- | Date: mm/dd/yyyy -->
+    <h3>{{currentSession.level}}</h3>
+    <div *ngIf="currentSession.feedbacks">
+        <div *ngFor="let currentFeedback of currentSession.feedbacks">
+            <h4>{{currentFeedback.user.username}}</h4>
+            <p>{{currentFeedback.feedback}}</p>
+            <h5>{{currentFeedback.date}}</h5>
+        </div>
+    </div>
+    <div>
+        <h2>Location:</h2>
+        <p>{{currentSession.location.country}}</p>
+        <p>{{currentSession.location.state}}</p>
+        <p>{{currentSession.location.city}}</p>
+        <p>{{currentSession.location.address}}</p>
+        <p>{{currentSession.location.zipcode}}</p>
+    </div>
+
+</div>

@@ -16,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SessionsComponent } from './sessions/sessions.component';
 import { MessengerComponent } from './messenger/messenger.component';
 import { SessionFormComponent } from './session-form/session-form.component';
+import { SessionBoardComponent } from './session-board/session-board.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { SessionFormComponent } from './session-form/session-form.component';
     SessionsComponent,
     MessengerComponent,
     SessionFormComponent,
+    SessionBoardComponent,
     
   ],
   imports: [
