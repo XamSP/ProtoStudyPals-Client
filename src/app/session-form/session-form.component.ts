@@ -10,7 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   providers: [SessionService, RetrieveSessionService]
 })
 export class SessionFormComponent implements OnInit {
-  @Input() user: any;
+  user: any;
   signupform: boolean;
   error: string;
   currentSession: any;
@@ -32,13 +32,15 @@ export class SessionFormComponent implements OnInit {
 
   constructor(
     private _retrieveSession: RetrieveSessionService,
+    private _session: SessionService
   ) { }
 
   ngOnInit() {
-    console.log(this._retrieveSession.retrieveSubjects()
+
+    this._session.isLoggedIn()
     .subscribe(
-      (subject) => this.successCb(subject)
-    ))
+      (user) => this.successCb2(user)
+    ); 
     
     this._retrieveSession.retrieveSubjects()
     .subscribe(
@@ -51,6 +53,11 @@ export class SessionFormComponent implements OnInit {
       .subscribe(
         (session) => this.currentSession = session
       );
+  }
+  
+  successCb2(user) {
+    this.user = user;
+    this.error = null;
   }
 
   errorCb(err) {

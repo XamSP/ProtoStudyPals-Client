@@ -2,9 +2,12 @@
 <div>
   <h2> You are now logged in as {{ user.username }}!! </h2>
 </div>
-<app-session-board [user]="user"></app-session-board>
+<app-session-board></app-session-board>
 
 <br>
-<app-sessions [user]="user"></app-sessions>
-<app-messenger [user]="user"></app-messenger>
-<app-profile [user]="user"></app-profile>
+
+<!-- [user]="user" -->
+
+<app-sessions></app-sessions>
+<app-messenger ></app-messenger>
+<app-profile ></app-profile>

@@ -9,6 +9,7 @@ import { FormsModule } from "@angular/forms";
 //import { FileSelectDirective } from "ng2-file-upload";
 import { ProfileComponent } from './profile/profile.component';
 import { SessionService } from './services/session.service';
+import { RetrieveSessionService } from './services/retrieve-session.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component'
 import { AppComponent } from './app.component';
@@ -38,7 +39,7 @@ import { SessionBoardComponent } from './session-board/session-board.component';
     FormsModule,
     FileUploadModule
   ],
-  providers: [SessionService],
+  providers: [SessionService, RetrieveSessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
