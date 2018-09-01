@@ -1,5 +1,5 @@
-<div *ngIf="sessions">
-<div *ngFor="let currentSession of sessions">
+<!-- <div *ngIf="sessions" class="card" style="width: 18rem;">
+<div *ngFor="let currentSession of sessions" class="card-header">
     <h4>Name:{{currentSession.title}}</h4>
     <h4>Subjects:</h4>
     <div *ngFor="let subject of currentSession.subjects">
@@ -24,11 +24,11 @@
             <li>{{tag}}</li>
         </ul>
     </div>
-    <!-- Add pipe for Date -->
+    Add pipe for Date
     <div *ngIf="currentSession.dateOfSession">
         <p>Date: {{currentSession.dateOfSession }}</p>        
     </div>
-    <!-- | Date: mm/dd/yyyy -->
+    Date: mm/dd/yyyy
     <h3>Level: {{currentSession.level}}</h3>
     <div *ngIf="currentSession.feedbacks">
         <h4>Feedbacks:</h4>
@@ -48,4 +48,51 @@
     </div>
 
 </div>
+</div> -->
+
+
+
+
+<div *ngIf="sessions" class="container-fluid">
+  <div class="row">
+    <div *ngFor="let currentSession of sessions" style="width: 18rem;" class="card col-md-6 col-sm-12">
+      <div *ngFor="let subject of currentSession.subjects" class="card-header">
+        <h4>Subject: {{subject.title}}</h4>
+      </div>
+      <h5 class="list-group-item">Host: {{currentSession.host.username}}</h5>
+      <div class="list-group-item">
+        <h5>Users Attending:</h5>
+        <ul *ngFor="let user of currentSession.usersAttending">
+          <li>{{user.username}}</li>
+        </ul>
+      </div>
+      <div class="list-group-item" *ngIf="user._id == currentSession.host._id">
+        <h5>Requests:</h5>
+        <ul *ngFor="let reqUser of currentSession.requestsFromUsers">
+          <li>{{ reqUser.username }}</li>
+        </ul>
+      </div>
+      <h5 class="list-group-item">Description: {{currentSession.description}}</h5>
+      <div *ngIf="currentSession.tags" class="list-group-item">
+        <h5>Tags:</h5>
+        <ul *ngFor="let tag of currentSession.tags">
+          <li>{{tag}}</li>
+        </ul>
+      </div>
+      <!-- Add pipe for Date -->
+      <!-- <div *ngIf="currentSession.dateOfSession"   class="list-group-item">
+              <p>Date: {{currentSession.dateOfSession }}</p>
+            </div> -->
+      <!-- | Date: mm/dd/yyyy -->
+      <h5 class="list-group-item">Level: {{currentSession.level}}</h5>
+     
+        <a href="#" class="mt-2 mx-auto mb-2 mt-2">...</a>
+
+
+
+    </div>
+
+
+  </div>
+
 </div>
