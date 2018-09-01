@@ -18,6 +18,8 @@ import { SessionsComponent } from './sessions/sessions.component';
 import { MessengerComponent } from './messenger/messenger.component';
 import { SessionFormComponent } from './session-form/session-form.component';
 import { SessionBoardComponent } from './session-board/session-board.component';
+import { MessageFormComponent } from './message-form/message-form.component';
+import { MsgConversationComponent } from './msg-conversation/msg-conversation.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { SessionBoardComponent } from './session-board/session-board.component';
     MessengerComponent,
     SessionFormComponent,
     SessionBoardComponent,
+    MessageFormComponent,
+    MsgConversationComponent,
     
   ],
   imports: [

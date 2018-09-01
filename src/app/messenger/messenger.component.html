@@ -1,3 +1,20 @@
-<p>
-  messenger works!
-</p>
+<div class="">
+  <div *ngIf="msgs">
+    <div *ngFor="let msg of msgs">
+      <!-- Make sure to add the right route for the actual conversation -->
+      <!-- <a href="/messenger/{{this.id}}" class="">{{this.subject}}</a> <br> -->
+      <ul *ngFor="let currentUser of users">
+        <li>{{currentUser.username}}</li>
+      </ul>
+    </div>
+  </div>
+
+  </div>
+  <!-- Make sure to add the right route for the msg form -->
+  <!-- <a href="/messenger/create" class="">Create Message</a> -->
+</div>
+
+<div *ngIf="msgForm">
+  <app-message-form></app-message-form>
+</div>
+<button (click)="msgFormDisplay()"> Make a Message</button>
