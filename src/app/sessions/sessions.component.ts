@@ -18,7 +18,7 @@ export class SessionsComponent implements OnInit {
   ngOnInit() {
     // this.session.isLoggedIn()
     // .subscribe(
-    //  ok (user) => this.successCb(user)
+    //   (user) => this.successCb(user)
     // );  
     this.sessionForm === false;
   }
