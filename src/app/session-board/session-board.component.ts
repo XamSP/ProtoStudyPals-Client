@@ -11,7 +11,7 @@ import { RetrieveSessionService } from '../services/retrieve-session.service';
 })
 export class SessionBoardComponent implements OnInit {
 
-  @Input() user: any;
+  user: any;
   signupform: boolean;
   error: string;
   sessions: any;
@@ -19,7 +19,7 @@ export class SessionBoardComponent implements OnInit {
 
   constructor(
     private _retrieveSession: RetrieveSessionService,
-    //private _session: SessionService
+    private _session: SessionService
   ) { }
 
   ngOnInit() {
@@ -28,17 +28,17 @@ export class SessionBoardComponent implements OnInit {
       (session) => this.successCb2(session)
     );
 
-    // this._session.isLoggedIn()
-    // .subscribe(
-    //   (user) => this.successCb(user)
-    // );    
+    this._session.isLoggedIn()
+    .subscribe(
+      (user) => this.successCb(user)
+    );    
   }
 
-  // errorCb(err) {
-  //   this.error = err;
-  //   this.user = null;
-  //   console.log(this.subjectss)
-  // }
+  errorCb(err) {
+    this.error = err;
+    this.user = null;
+    console.log(this.subjectss)
+  }
   
   successCb(user) {
     this.user = user;

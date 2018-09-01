@@ -1,24 +1,38 @@
-<div *ngIf="!user">
-  <form>
-    <h2> Login or Signup </h2>
-    <label> Username </label>
-    <input type="text" [(ngModel)]="formInfo.username" name="username"/>
-    <br>
-    <label> Password </label>
-    <input type="password" [(ngModel)]="formInfo.password" name="password"/>
-  
-    <button (click)="login()"> login </button>
-  </form>
-  
-  <button (click)="signupFormDisplay()" >Sign UP!</button>
-  
-  <div *ngIf="signupform === true">
-    <app-signup></app-signup>
+<div *ngIf="!user" class="container-fluid mt-5">
+  <div class="row">
+    <div class="mx-auto">
+      <form>
+        <div class="form-group">
+          <h2>Login</h2>
+          <label> Username </label>
+          <br>
+          <input type="text" [(ngModel)]="formInfo.username" name="username" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label class="mr-3"> Password </label>
+          <br>
+          <input type="password" [(ngModel)]="formInfo.password" name="password" class="form-control" />
+        </div>
+      </form>
+      <div class="align-content-center">
+        <button (click)="login()" class="btn btn-primary mr-3"> login </button>
+        <button (click)="signupFormDisplay()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Signup!</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="signupform === true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <app-signup></app-signup>
+      </div>
+    </div>
   </div>
 </div>
 
 <div *ngIf="user">
-  <app-dashboard [user]="user"></app-dashboard>
+  <app-dashboard></app-dashboard>
 </div>
 
 <p class="error"> {{ error }} </p>
