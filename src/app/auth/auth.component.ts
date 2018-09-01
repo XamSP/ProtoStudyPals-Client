@@ -72,3 +72,5 @@ export class AuthComponent implements OnInit {
     this.error = null;
   }
 }
+
+// Pincho
