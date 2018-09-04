@@ -6,20 +6,22 @@ import { MessagingService } from '../services/messaging.service';
 @Component({
   selector: 'app-message-form',
   templateUrl: './message-form.component.html',
-  styleUrls: ['./message-form.component.css']
+  styleUrls: ['./message-form.component.css'],
+  providers: [SessionService, MessagingService]
 })
 export class MessageFormComponent implements OnInit {
-
-  formSession: any = {
-    subject: '',
-    username: '',
-    childMsgContent: ''
-  }
 
   user: any;
   error: string;
   privateData: any = '';
   msgs: any;
+
+  formSession: any = {
+    subject: '',
+    username: '',
+    childMsgContent: '',
+    myId: '',
+  }
 
   constructor(
     private router: Router,
@@ -29,7 +31,14 @@ export class MessageFormComponent implements OnInit {
 
   ) { }
 
+  
+
   ngOnInit() {
+    this._session.isLoggedIn()
+    .subscribe(
+      (user) => this.successCb(user)
+    );  
+    console.log('this user is '+this.user)
   }
 
   sendMsg(form){
@@ -47,6 +56,8 @@ export class MessageFormComponent implements OnInit {
   
   successCb(user) {
     this.user = user;
+    this.formSession.myId = user._id;
+    console.log('this user in Cb is '+this.formSession.myId)
     this.error = null;
   }
 
