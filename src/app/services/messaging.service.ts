@@ -18,8 +18,8 @@ export class MessagingService {
     return throwError(e.json().message);
   }
 
-  getMyMsgs() {
-    return this.http.get(`${this.apiURL}/messenger/`).pipe(map(res => res.json()),catchError(this.handleError));
+  getMyMsgs(id) {
+    return this.http.get(`${this.apiURL}/messenger/`, id).pipe(map(res => res.json()),catchError(this.handleError));
   }
   
   getPals() {

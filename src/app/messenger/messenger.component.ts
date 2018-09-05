@@ -14,19 +14,22 @@ export class MessengerComponent implements OnInit {
   privateData: any = '';
   msgs: any;
   msgForm: boolean;
+  Id: "";
 
   constructor(
     private session: SessionService,
     private _messages: MessagingService,
     ) { }
 
+    //need to ask alan on how to wait for the user to get the messages
   ngOnInit() {
     this.session.isLoggedIn()
     .subscribe(
       (user) => this.successCb(user)
     );  
 
-    this._messages.getMyMsgs()
+    console.log('THIS IS MESSENGER! 2 '+this.Id);
+    this._messages.getMyMsgs(this.Id)
     .subscribe(
       (msgs) => this.successCb2(msgs)
     ); 
@@ -49,7 +52,14 @@ export class MessengerComponent implements OnInit {
   
   successCb(user) {
     this.user = user;
+    this.Id = user._id;
+    console.log('THIS IS MESSENGER! '+this.Id);
     this.error = null;
+    this._messages.getMyMsgs(this.Id)
+    .subscribe(
+      (msgs) => this.successCb2(msgs)
+    ); 
+    console.log(this.msgs)
   }
 
   successCb2(msgs) {
