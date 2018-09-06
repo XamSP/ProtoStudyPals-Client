@@ -8,17 +8,17 @@ import { SessionService } from '../services/session.service';
   providers: [SessionService]
 })
 export class ProfileComponent implements OnInit {
-  @Input() user: any;
+  user: any;
   error: string;
   privateData: any = '';
   
   constructor(private session: SessionService) { }
 
   ngOnInit() {
-    // this.session.isLoggedIn()
-    // .subscribe(
-    //   (user) => this.successCb(user)
-    // );
+    this.session.isLoggedIn()
+    .subscribe(
+      (user) => this.successCb(user)
+    );
   }
 
   //
