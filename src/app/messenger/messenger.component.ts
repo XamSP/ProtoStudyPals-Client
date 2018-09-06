@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SessionService } from '../services/session.service';
 import { MessagingService } from '../services/messaging.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-messenger',
@@ -12,11 +13,12 @@ export class MessengerComponent implements OnInit {
   user: any;
   error: string;
   privateData: any = '';
-  msgs: any;
+  objMsgs: any;
   msgForm: boolean;
   Id: "";
 
   constructor(
+    private router: Router,
     private session: SessionService,
     private _messages: MessagingService,
     ) { }
@@ -25,16 +27,25 @@ export class MessengerComponent implements OnInit {
   ngOnInit() {
     this.session.isLoggedIn()
     .subscribe(
-      (user) => this.successCb(user)
-    );  
+      (user) => {
+        this.successCb(user);
+        //then after user is placed...
+        console.log('THIS IS MESSENGER! 2 '+this.Id);
+        this._messages.getMyMsgs()
+        .subscribe(
+          (objMsgs) => this.successCb2(objMsgs
+          )
+        ); 
+      
+      }
 
-    console.log('THIS IS MESSENGER! 2 '+this.Id);
-    this._messages.getMyMsgs(this.Id)
-    .subscribe(
-      (msgs) => this.successCb2(msgs)
-    ); 
+    );  
   
     this.msgForm = false;
+  }
+
+  viewProfile(id){
+    this.router.navigate(['contact', id]);
   }
 
   msgFormDisplay(){
@@ -55,15 +66,11 @@ export class MessengerComponent implements OnInit {
     this.Id = user._id;
     console.log('THIS IS MESSENGER! '+this.Id);
     this.error = null;
-    this._messages.getMyMsgs(this.Id)
-    .subscribe(
-      (msgs) => this.successCb2(msgs)
-    ); 
-    console.log(this.msgs)
   }
 
   successCb2(msgs) {
-    this.msgs = msgs;
+    this.objMsgs = msgs;
     this.error = null;
+    console.log(this.objMsgs)
   }
 }

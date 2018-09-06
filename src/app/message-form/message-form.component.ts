@@ -38,7 +38,6 @@ export class MessageFormComponent implements OnInit {
     .subscribe(
       (user) => this.successCb(user)
     );  
-    console.log('this user is '+this.user)
   }
 
   sendMsg(form){
