@@ -45,7 +45,7 @@ export class MessengerComponent implements OnInit {
   }
 
   viewProfile(id){
-    this.router.navigate(['contact', id]);
+    this.router.navigate(['profile', id]);
   }
 
   msgFormDisplay(){

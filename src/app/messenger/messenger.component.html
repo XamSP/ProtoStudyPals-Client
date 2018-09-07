@@ -1,12 +1,13 @@
 <div class="">
   <div *ngIf="objMsgs">
     <div *ngFor="let msg of objMsgs.msgs">
-      <p>subject: {{msg.subject}}</p>  
+      <a [routerLink]="['/messenger', msg._id]">subject: {{msg.subject}} Users: {{msg.users.length}}</a>  
+      
       <!-- Make sure to add the right route for the actual conversation -->
       <!-- <a href="/messenger/{{this.id}}" class="">{{this.subject}}</a> <br> -->
-      <ul *ngFor="let currentUser of msg.users">
+      <!-- <ul *ngFor="let currentUser of msg.users">
         <li><a [routerLink]="['/profile', currentUser._id]">Users: {{currentUser.username}}</a></li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 
