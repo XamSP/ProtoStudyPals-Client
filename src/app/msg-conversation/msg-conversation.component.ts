@@ -34,11 +34,13 @@ export class MsgConversationComponent implements OnInit {
         this.route.params
         .subscribe((params) => {
           this.Id = params['id'];
-      });
-        this._messages.seeMsg(this.Id)
-        .subscribe(
-          (mainMsg) => this.successCb2(mainMsg)
-        ); 
+          console.log(params['id'])
+          this._messages.seeMsg(this.Id)
+          .subscribe(
+            (mainMsg) => this.successCb2(mainMsg)
+          );
+        });
+ 
       
       }
 

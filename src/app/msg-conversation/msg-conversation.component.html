@@ -1,3 +1,15 @@
 <p>
   msg-conversation works!
 </p>
+
+<div>
+  <p>Subject: {{mainMsg.theMsg.subject}}</p>
+  
+  <div *ngFor="let currentUser of mainMsg.theMsg.users">
+    {{currentUser.username}}
+  </div>
+  
+  <div *ngFor="let currentMsg of mainMsg.theMsg.texts">
+    <p>{{currentMsg.msg}} {{currentMsg.user.username}} {{currentMsg.date}}</p>
+  </div>
+</div>
