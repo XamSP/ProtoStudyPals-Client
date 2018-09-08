@@ -1,15 +1,20 @@
-<p>
-  msg-conversation works!
-</p>
-
 <div>
   <p>Subject: {{mainMsg.theMsg.subject}}</p>
-  
+  <h4>Users:</h4>
   <div *ngFor="let currentUser of mainMsg.theMsg.users">
     {{currentUser.username}}
   </div>
   
+  <h4>Chat:</h4>
   <div *ngFor="let currentMsg of mainMsg.theMsg.texts">
     <p>{{currentMsg.msg}} {{currentMsg.user.username}} {{currentMsg.date}}</p>
   </div>
+
 </div>
+
+
+<form class="col form-group">
+  <label>Message</label>
+  <textarea class="form-control" [(ngModel)]="formChildMsg.childMsgContent" name="childMsgContent" rows="3"></textarea>
+  <button (click)="sendChildMsg(formChildMsg)"> Send! </button>
+</form>

@@ -17,6 +17,9 @@ export class MsgConversationComponent implements OnInit {
   privateData: any = '';
   mainMsg: any;
   Id: any;
+  formChildMsg: any = {
+    childMsgContent: ''
+  }
 
   constructor(
     private router: Router,
@@ -44,6 +47,14 @@ export class MsgConversationComponent implements OnInit {
       
       }
 
+    );
+  }
+
+  sendChildMsg(form){
+    this._messages.postMsg(this.Id, form)
+    .subscribe(
+      (msgs) => this.successCb2(msgs),
+      (err) => this.errorCb(err)
     );
   }
 
