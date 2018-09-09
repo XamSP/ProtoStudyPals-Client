@@ -33,6 +33,7 @@
 
 <div *ngIf="user">
   <app-dashboard></app-dashboard>
+<button (click)="login()" class="btn btn-primary">Logout</button>
 </div>
 
 <p class="error"> {{ error }} </p>

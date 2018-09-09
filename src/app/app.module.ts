@@ -20,6 +20,7 @@ import { SessionFormComponent } from './session-form/session-form.component';
 import { SessionBoardComponent } from './session-board/session-board.component';
 import { MessageFormComponent } from './message-form/message-form.component';
 import { MsgConversationComponent } from './msg-conversation/msg-conversation.component';
+import { SessionQueryBarComponent } from './session-query-bar/session-query-bar.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { MsgConversationComponent } from './msg-conversation/msg-conversation.co
     SessionBoardComponent,
     MessageFormComponent,
     MsgConversationComponent,
+    SessionQueryBarComponent,
     
   ],
   imports: [
