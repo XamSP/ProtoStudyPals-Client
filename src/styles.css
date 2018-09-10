@@ -1,7 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
-
+*{
+    font-family: 'Space Mono', monospace;
+}
 
 body{
-    background: #b1cdf9;  /* fallback for old browsers */
-    background-size: cover;
+    margin: 0;
+    padding:0;
+   
+}
+
+#particles-js{
+    height: 100%;
+    width:100%;
+    background: rgb(127, 64, 199);
+    position: absolute;
+    z-index: -1;
 }
