@@ -1,6 +1,6 @@
 <div>
   <p>Subject: {{mainMsg.theMsg.subject}}</p>
-  <h4>Users:</h4>
+  <!-- <h4>Users:</h4>
   <div *ngFor="let currentUser of mainMsg.theMsg.users">
     {{currentUser.username}}
   </div>
@@ -8,13 +8,111 @@
   <h4>Chat:</h4>
   <div *ngFor="let currentMsg of mainMsg.theMsg.texts">
     <p>{{currentMsg.msg}} {{currentMsg.user.username}} {{currentMsg.date}}</p>
-  </div>
+  </div> -->
 
 </div>
 
 
-<form class="col form-group">
+<!-- <form class="col form-group">
   <label>Message</label>
-  <textarea class="form-control" [(ngModel)]="formChildMsg.childMsgContent" name="childMsgContent" rows="3"></textarea>
+  <textarea class="form-control"  rows="3"></textarea>
   <button (click)="sendChildMsg(formChildMsg)"> Send! </button>
-</form>
+</form> -->
+
+<div class="card grey lighten-3 chat-room">
+  <div class="card-body">
+
+      <!-- Grid row -->
+      <div class="row px-lg-2 px-2">
+
+          <!-- Grid column -->
+          <div class="col-md-6 col-xl-4 px-0">
+
+              <h6 class="font-weight-bold mb-3 text-center text-lg-left">Member</h6>
+              <div class="white z-depth-1 px-3 pt-3 pb-0">
+                  <ul *ngFor="let thisMsg of allMsgs.msgs" class="list-unstyled friend-list">
+                      <!-- <li class="active grey lighten-3 p-2"> 
+                          <a href="#" class="d-flex justify-content-between">
+                              <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
+                              <div class="text-small">
+                                  <strong *ngFor="let currentUser of thisMsg.users; let i = index">{{currentUser.username}}<span *ngIf="i !== mainMsg.theMsg.users.length -1">, </span></strong>
+                                  <p class="last-message text-muted">{{thisMsg.texts[0].msg}}</p>
+                              </div>
+                              <div class="chat-footer">
+                                  <p class="text-smaller text-muted mb-0">Time Here</p>
+                                  <span class="badge badge-danger float-right">1</span>
+                              </div>
+                          </a>
+                      </li> -->
+                     
+                      <li class="p-2">
+                          <a href="#" class="d-flex justify-content-between">
+                              <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
+                              <div class="text-small">
+                                  <strong *ngFor="let currentUser of thisMsg.users; let i = index">{{currentUser.username}}<span *ngIf="i !== mainMsg.theMsg.users.length -1">, </span></strong>
+                                  <p class="last-message text-muted">{{thisMsg.texts[0].msg}}</p>
+                              </div>
+                              <div class="chat-footer">
+                                  <p class="text-smaller text-muted mb-0">Time Here</p>
+                                  <span class="text-muted float-right"><i class="fa fa-mail-reply" aria-hidden="true"></i></span>
+                              </div>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-6 col-xl-8 pl-md-3 px-lg-auto px-0">
+
+              <div class="chat-message">
+
+                  <ul *ngFor="let currentMsg of mainMsg.theMsg.texts; let i = index" class="list-unstyled chat">
+                      
+                    <li *ngIf="currentMsg.user._id == user._id" class="d-flex justify-content-between mb-4">
+                          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
+                          <div class="chat-body white p-3 ml-2 z-depth-1">
+                              <div class="header">
+                                  <strong class="primary-font">{{currentMsg.user.username}}</strong>
+                                  <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 12 mins ago</small>
+                              </div>
+                              <hr class="w-100">
+                              <p class="mb-0">
+                                {{currentMsg.msg}}
+                              </p>
+                          </div>
+                      </li>
+                      <li *ngIf="currentMsg.user._id !== user._id" class="d-flex justify-content-between mb-4">
+                          <div class="chat-body white p-3 z-depth-1">
+                              <div class="header">
+                                  <strong class="primary-font">{{currentMsg.user.username}}</strong>
+                                  <small class="pull-right text-muted"><i class="fa fa-clock-o"></i> 13 mins ago</small>
+                              </div>
+                              <hr class="w-100">
+                              <p class="mb-0">
+                                {{currentMsg.msg}}                               
+                              </p>
+                          </div>
+                          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5" alt="avatar" class="avatar rounded-circle mr-0 ml-3 z-depth-1">
+                      </li>
+                    
+                      <li *ngIf="i == mainMsg.theMsg.texts.length -1" class="white"> <!---->
+                          <div class="form-group basic-textarea">
+                              <textarea [(ngModel)]="formChildMsg.childMsgContent" name="childMsgContent" class="form-control pl-2 my-0" id="exampleFormControlTextarea2" rows="3" placeholder="Type your message here..."></textarea>
+                          </div>
+                      </li>
+                      <button *ngIf="i == mainMsg.theMsg.texts.length -1" type="button" (click)="sendChildMsg(formChildMsg)" class="btn btn-info btn-rounded btn-sm waves-effect waves-light float-right">Send</button>
+                  </ul>
+
+              </div>
+
+          </div>
+          <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+  </div>
+</div>
