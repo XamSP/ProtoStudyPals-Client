@@ -16,10 +16,10 @@ export class SessionsComponent implements OnInit {
   constructor(private session: SessionService) { }
 
   ngOnInit() {
-    // this.session.isLoggedIn()
-    // .subscribe(
-    //   (user) => this.successCb(user)
-    // );  
+    this.session.isLoggedIn()
+    .subscribe(
+      (user) => this.successCb(user)
+    );  
     this.sessionForm === false;
   }
 

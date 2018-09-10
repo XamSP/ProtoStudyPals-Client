@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SessionService } from '../services/session.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -14,13 +16,28 @@ export class DashboardComponent implements OnInit {
   error: string;
   privateData: any = '';
 
-  constructor(private session: SessionService) {  }
+  constructor(
+    private router: Router,
+    private session: SessionService
+  ) {  }
 
   ngOnInit() {
     this.session.isLoggedIn()
     .subscribe(
       (user) => this.successCb(user)
     );
+  }
+
+  viewMsgs(){
+    this.router.navigate(['messenger']);
+  }
+
+  viewSessions(){
+    this.router.navigate(['sessions']);
+  }
+
+  viewProfile(id){
+    this.router.navigate(['profile', id]);
   }
 
   errorCb(err) {

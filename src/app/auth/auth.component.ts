@@ -12,6 +12,7 @@ export class AuthComponent implements OnInit {
   formInfo:any = {
     username: '',
     password: ''
+    
   };
   
   user: any;

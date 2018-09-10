@@ -1,6 +1,6 @@
 <!-- put query bar here -->
 <div>
-  <h2> You are now logged in as {{ user.username }}!! </h2>
+  <h2> Welcome {{ user.username }}!! </h2>
 </div>
 <app-session-board></app-session-board>
 
@@ -8,6 +8,13 @@
 
 <!-- [user]="user" -->
 
-<app-sessions></app-sessions>
-<app-messenger ></app-messenger>
-<app-profile ></app-profile>
+
+<button (click)="viewSessions()">My Sessions</button>
+<button (click)="viewMsgs()">Messages</button>
+<button (click)="viewProfile(user._id)">Me!</button>
+
+<!-- 
+  <app-sessions></app-sessions>
+  <app-messenger></app-messenger>
+  <app-profile ></app-profile> 
+-->

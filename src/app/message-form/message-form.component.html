@@ -1,3 +1,24 @@
-<p>
-  message-form works!
-</p>
+<form id="form-container">
+  <div class="form-row">
+    <div class="col-7">
+      <label for="subject">Subject:</label>
+      <input id="subject" class="form-control" type="text" [(ngModel)]="formSession.subject" name="subject" placeholder="Hello!">
+    </div>
+    <div class="col">
+      <label for="username">Who?</label>
+      <input id="username" type="text" class="form-control" [(ngModel)]="formSession.username" name="username" placeholder="user53">
+    </div>
+  </div>
+
+  <div class="form-row"s>
+    <div class="col form-group">
+      <label for="exampleFormControlTextarea1">Message</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="formSession.childMsgContent" name="childMsgContent" rows="3"></textarea>
+    </div>
+  </div>
+  <button (click)="sendMsg(formSession)"> Send! </button>
+  <!-- {{#if message}}
+    <div class="error-message">{{ message }}</div>
+  {{/if}} -->
+
+  </form>
