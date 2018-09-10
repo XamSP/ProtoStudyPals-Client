@@ -32,7 +32,8 @@
 </div>
 
 <div *ngIf="user">
-  <app-dashboard [user]="user"></app-dashboard>
+  <app-dashboard></app-dashboard>
+<button (click)="login()" class="btn btn-primary">Logout</button>
 </div>
 
 <p class="error"> {{ error }} </p>

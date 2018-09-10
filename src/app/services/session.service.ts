@@ -23,15 +23,15 @@ export class SessionService {
   }
 
   login(user) {
-    return this.http.post(`${this.mainURL}/login`, user).pipe(map(res => res.json()), catchError(this.handleError));
+    return this.http.post(`${this.mainURL}/login`, user,  {withCredentials : true}).pipe(map(res => res.json()), catchError(this.handleError));
   }
 
   logout() {
-    return this.http.post(`${this.mainURL}/logout`, {}).pipe(map(res => res.json()), catchError(this.handleError));
+    return this.http.post(`${this.mainURL}/logout`,  {withCredentials : true}).pipe(map(res => res.json()), catchError(this.handleError));
   }
 
   isLoggedIn() {
-    return this.http.get(`${this.mainURL}/loggedin`).pipe(map(res => res.json()),catchError(this.handleError));
+    return this.http.get(`${this.mainURL}/loggedin`, {withCredentials : true}).pipe(map(res => res.json()),catchError(this.handleError));
       
   }
 
