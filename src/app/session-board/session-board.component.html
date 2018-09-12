@@ -89,7 +89,7 @@
          
             <a href="#" class="mt-2 mx-auto mb-2 mt-2 align-bottom">...</a>
     
-    
+            <button (click)="joinSession(currentSession._id)" >Join!</button>
     
         </div>
       </div>
@@ -100,11 +100,6 @@
               <p>Date: {{currentSession.dateOfSession }}</p>
             </div> -->
       <!-- | Date: mm/dd/yyyy -->
-      <h5 class="list-group-item">Level: {{currentSession.level}}</h5>
-     
-        <a href="#" class="mt-2 mx-auto mb-2 mt-2">...</a>
-
-        <button (click)="joinSession(currentSession._id)" >Join!</button>
 
     </div>
 
@@ -112,4 +107,4 @@
 
   </div>
 
-</div>
+
