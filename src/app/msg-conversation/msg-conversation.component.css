@@ -1,3 +1,4 @@
+
 .form-container{
     margin-top:25%;
     background: rgba(255, 255, 255, 0.808);
@@ -6,3 +7,26 @@
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     z-index:2;
 }
+
+/* .basic-textarea textarea {
+    height: auto;
+}
+
+.card.chat-room .friend-list li {
+  border-bottom: 1px solid #e0e0e0; }
+  .card.chat-room .friend-list li:last-of-type {
+    border-bottom: none; }
+
+.card.chat-room img.rounded-circle {
+  border-radius: 50%; }
+
+.card.chat-room img.avatar {
+  height: 3rem;
+  width: 3rem; }
+
+.card.chat-room .text-small {
+  font-size: 0.95rem; }
+
+.card.chat-room .text-smaller {
+  font-size: 0.75rem; } */
+

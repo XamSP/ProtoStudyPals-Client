@@ -16,6 +16,7 @@ export class MsgConversationComponent implements OnInit {
   error: string;
   privateData: any = '';
   mainMsg: any;
+  allMsgs:any;
   Id: any;
   formChildMsg: any = {
     childMsgContent: ''
@@ -40,8 +41,12 @@ export class MsgConversationComponent implements OnInit {
           console.log(params['id'])
           this._messages.seeMsg(this.Id)
           .subscribe(
-            (mainMsg) => this.successCb2(mainMsg)
-          );
+            (mainMsg) => {this.successCb2(mainMsg)
+            this._messages.getMyMsgs()
+              .subscribe(
+                (allMsgs) => this.successCb3(allMsgs)
+              )
+            });
         });
  
       
@@ -65,6 +70,7 @@ export class MsgConversationComponent implements OnInit {
   
   successCb(user) {
     this.user = user;
+    console.log(this.user._id)
     this.error = null;
   }
 
@@ -72,5 +78,11 @@ export class MsgConversationComponent implements OnInit {
     this.mainMsg = msgs;
     this.error = null;
     console.log(this.mainMsg)
+  }
+
+  successCb3(allMsgs) {
+    this.allMsgs = allMsgs;
+    this.error = null;
+    console.log(this.allMsgs)
   }
 }

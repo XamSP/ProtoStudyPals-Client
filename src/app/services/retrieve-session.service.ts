@@ -27,15 +27,20 @@ export class RetrieveSessionService {
   }
 
   retrieveSubjectId(id) {
-    return this.http.get(`${this.apiURL}/subtags/subject/${id}`).pipe(map(res => res.json()),catchError(this.handleError));
+    return this.http.get(`${this.apiURL}/subtags/subject/${id}`, {withCredentials : true}).pipe(map(res => res.json()),catchError(this.handleError));
   }
 
   retrieveTags(){
-    return this.http.get(`${this.apiURL}/subtags/tag`).pipe(map(res => res.json()),catchError(this.handleError));
+    return this.http.get(`${this.apiURL}/subtags/tag`, {withCredentials : true}).pipe(map(res => res.json()),catchError(this.handleError));
   }
 
   createSession(session, user) {
     console.log(session);
-    return this.http.post(`${this.apiURL}/session/create`, {session, user}).pipe(map(res => res.json()),catchError(this.handleError));
+    return this.http.post(`${this.apiURL}/session/create`, {session, user}, {withCredentials : true}).pipe(map(res => res.json()),catchError(this.handleError));
+  }
+
+  joinTheSession(sessionId) {
+    console.log("its coming here")
+    return this.http.post(`${this.apiURL}/session/join`, {sessionId}, {withCredentials : true}).pipe(map(res => res.json()),catchError(this.handleError));
   }
 }
