@@ -53,32 +53,48 @@
 
 
 
-<div *ngIf="sessions" class="container-fluid">
+<div *ngIf="sessions" class="container text-center">
   <div class="row">
-    <div *ngFor="let currentSession of sessions" style="width: 18rem;" class="card col-md-6 col-sm-12">
-      <div *ngFor="let subject of currentSession.subjects" class="card-header">
-        <h4>Subject: {{subject.title}}</h4>
+    <div *ngFor="let currentSession of sessions"  class="col my-2">
+      <div class="mx-2 my-3 bg-light p-2 rounded h-100 sessiondiv">
+          <div *ngFor="let subject of currentSession.subjects">
+            <h4>Subject: {{subject.title}}</h4>
+          </div>
+          <h5>Host: {{currentSession.host.username}}</h5>
+          <div>
+            <h5>Users Attending:</h5>
+            <ul *ngFor="let user of currentSession.usersAttending">
+              <li>{{user.username}}</li>
+            </ul>
+          </div>
+          <div  *ngIf="user._id == currentSession.host._id">
+            <h5>Requests:</h5>
+            <ul *ngFor="let reqUser of currentSession.requestsFromUsers">
+              <li>{{ reqUser.username }}</li>
+            </ul>
+          </div>
+          <h5>Description: {{currentSession.description}}</h5>
+          <div *ngIf="currentSession.tags">
+            <h5>Tags:</h5>
+            <ul *ngFor="let tag of currentSession.tags">
+              <li>{{tag}}</li>
+            </ul>
+          </div>
+          <!-- Add pipe for Date -->
+          <!-- <div *ngIf="currentSession.dateOfSession"   class="list-group-item">
+                  <p>Date: {{currentSession.dateOfSession }}</p>
+                </div> -->
+          <!-- | Date: mm/dd/yyyy -->
+          <h5>Level: {{currentSession.level}}</h5>
+         
+            <a href="#" class="mt-2 mx-auto mb-2 mt-2 align-bottom">...</a>
+    
+    
+    
+        </div>
       </div>
-      <h5 class="list-group-item">Host: {{currentSession.host.username}}</h5>
-      <div class="list-group-item">
-        <h5>Users Attending:</h5>
-        <ul *ngFor="let user of currentSession.usersAttending">
-          <li>{{user.username}}</li>
-        </ul>
-      </div>
-      <div class="list-group-item" *ngIf="user._id == currentSession.host._id">
-        <h5>Requests:</h5>
-        <ul *ngFor="let reqUser of currentSession.requestsFromUsers">
-          <li>{{ reqUser.username }}</li>
-        </ul>
-      </div>
-      <h5 class="list-group-item">Description: {{currentSession.description}}</h5>
-      <div *ngIf="currentSession.tags" class="list-group-item">
-        <h5>Tags:</h5>
-        <ul *ngFor="let tag of currentSession.tags">
-          <li>{{tag}}</li>
-        </ul>
-      </div>
+
+
       <!-- Add pipe for Date -->
       <!-- <div *ngIf="currentSession.dateOfSession"   class="list-group-item">
               <p>Date: {{currentSession.dateOfSession }}</p>
@@ -91,6 +107,7 @@
         <button (click)="joinSession(currentSession._id)" >Join!</button>
 
     </div>
+
 
 
   </div>

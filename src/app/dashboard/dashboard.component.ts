@@ -49,4 +49,12 @@ export class DashboardComponent implements OnInit {
     this.user = user;
     this.error = null;
   }
+
+  logout() {
+    this.session.logout()
+      .subscribe(
+        () => this.successCb(null),
+        (err) => this.errorCb(err)
+      );
+  }
 }

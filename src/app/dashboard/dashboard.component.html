@@ -1,5 +1,5 @@
 <!-- put query bar here -->
-<div>
+<div class="container text-center">
   <h2> Welcome {{ user.username }}!! </h2>
 </div>
 <app-session-board></app-session-board>
@@ -9,9 +9,14 @@
 <!-- [user]="user" -->
 
 
-<button (click)="viewSessions()">My Sessions</button>
-<button (click)="viewMsgs()">Messages</button>
-<button (click)="viewProfile(user._id)">Me!</button>
+<div class="container-flex text-center my-auto">
+  
+    <button (click)="viewSessions()"  class="btn btn-light mx-2 session-buttons">My Sessions</button>
+    <button (click)="viewMsgs()"  class="btn btn-light mx-2 session-buttons">Messages</button>
+    <button (click)="viewProfile(user._id)"  class="btn btn-light mx-2 session-buttons">Profile</button>
+    <button (click)="logout()" class="btn btn-light mx-2 session-buttons">Logout</button>
+ 
+</div>
 
 <!-- 
   <app-sessions></app-sessions>

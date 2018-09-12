@@ -1,4 +1,4 @@
-<div class="">
+<div class="form-container">
   <div *ngIf="objMsgs">
     <div *ngFor="let msg of objMsgs.msgs">
       <a [routerLink]="['/messenger', msg._id]">subject: {{msg.subject}} Users: {{msg.users.length}}</a>  
