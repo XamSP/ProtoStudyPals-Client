@@ -1,4 +1,4 @@
-<div>
+<div class="form-container container">
   <p>Subject: {{mainMsg.theMsg.subject}}</p>
   <h4>Users:</h4>
   <div *ngFor="let currentUser of mainMsg.theMsg.users">
@@ -13,7 +13,7 @@
 </div>
 
 
-<form class="col form-group">
+<form class="col form-group form-container container">
   <label>Message</label>
   <textarea class="form-control" [(ngModel)]="formChildMsg.childMsgContent" name="childMsgContent" rows="3"></textarea>
   <button (click)="sendChildMsg(formChildMsg)"> Send! </button>
