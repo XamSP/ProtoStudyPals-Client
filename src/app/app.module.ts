@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { routes } from './app.routing';
 import { HttpModule } from '@angular/http';
-import { FileUploadModule } from "ng2-file-upload";
+// import { FileUploadModule } from "ng2-file-upload";
 import { FormsModule } from "@angular/forms";
 
-//import { FileSelectDirective } from "ng2-file-upload";
+import { FileSelectDirective } from "ng2-file-upload";
 import { ProfileComponent } from './profile/profile.component';
 import { SessionService } from './services/session.service';
 import { RetrieveSessionService } from './services/retrieve-session.service';
@@ -21,6 +21,7 @@ import { SessionBoardComponent } from './session-board/session-board.component';
 import { MessageFormComponent } from './message-form/message-form.component';
 import { MsgConversationComponent } from './msg-conversation/msg-conversation.component';
 import { SessionQueryBarComponent } from './session-query-bar/session-query-bar.component';
+import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,8 @@ import { SessionQueryBarComponent } from './session-query-bar/session-query-bar.
     MessageFormComponent,
     MsgConversationComponent,
     SessionQueryBarComponent,
+    ProfileEditComponent,
+    // FileSelectDirective,
     
   ],
   imports: [
@@ -43,7 +46,7 @@ import { SessionQueryBarComponent } from './session-query-bar/session-query-bar.
     RouterModule.forRoot(routes),
     HttpModule,
     FormsModule,
-    FileUploadModule
+    // FileUploadModule
   ],
   providers: [SessionService, RetrieveSessionService],
   bootstrap: [AppComponent]
