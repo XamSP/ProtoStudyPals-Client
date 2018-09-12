@@ -51,4 +51,9 @@ export class SessionBoardComponent implements OnInit {
     console.log(this.sessions)
   }
 
+  joinSession(sessionId){
+    this._retrieveSession.joinTheSession(sessionId).subscribe(
+      (session) => console.log(session)
+    );
+  }
 }
