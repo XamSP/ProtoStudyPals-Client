@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject  } from '@angular/core';
 import { SessionService } from '../services/session.service';
 import { RetrieveSessionService } from '../services/retrieve-session.service';
-
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-session-board',
@@ -11,15 +11,18 @@ import { RetrieveSessionService } from '../services/retrieve-session.service';
 })
 export class SessionBoardComponent implements OnInit {
 
+  myRoute: any;
   user: any;
   signupform: boolean;
   error: string;
   sessions: any;
+  mySessions: any;
   subjectss: any;
 
   constructor(
     private _retrieveSession: RetrieveSessionService,
-    private _session: SessionService
+    private _session: SessionService,
+    @Inject(DOCUMENT) private document: Document
   ) { }
 
   ngOnInit() {
@@ -27,6 +30,18 @@ export class SessionBoardComponent implements OnInit {
     .subscribe(
       (session) => this.successCb2(session)
     );
+
+    console.log(this.document.location.href)
+
+    if (this.document.location.href == "http://localhost:4200/sessions") {
+      this._retrieveSession.retrieveMySession()
+      .subscribe(
+        (mySession) => this.successCb3(mySession)
+      );
+      
+
+    }
+
 
     this._session.isLoggedIn()
     .subscribe(
@@ -49,6 +64,12 @@ export class SessionBoardComponent implements OnInit {
     this.sessions = session;
     this.error = null;
     console.log(this.sessions)
+  }
+
+  successCb3(mySession) {
+    this.mySessions = mySession;
+    this.error = null;
+    console.log(this.mySessions)
   }
 
   joinSession(sessionId){

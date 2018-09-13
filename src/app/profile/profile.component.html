@@ -7,4 +7,9 @@
     <p>Location: {{user.location.address}}, {{user.location.city}},<br>{{user.location.state}}, {{user.location.zipcode}}, {{user.location.country}}.</p>
 </div>
 
+<div *ngIf="showEdit">
+    <app-profile-edit></app-profile-edit>
+</div>
+
+<button (click)="showIt()">Edit Yourself!</button>
 

@@ -8,10 +8,11 @@ import { SessionService } from '../services/session.service';
   providers: [SessionService]
 })
 export class SessionsComponent implements OnInit {
-  @Input() user: any;
+  user: any;
   error: string;
   privateData: any = '';
   sessionForm: boolean;
+  myRoute: boolean = true;
 
   constructor(private session: SessionService) { }
 
@@ -21,6 +22,7 @@ export class SessionsComponent implements OnInit {
       (user) => this.successCb(user)
     );  
     this.sessionForm === false;
+    
   }
 
   sessionFormDisplay(){

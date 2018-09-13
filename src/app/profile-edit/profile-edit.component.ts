@@ -19,6 +19,7 @@ export class ProfileEditComponent implements OnInit {
     confirmPassword: '',
     firstName: '',
     lastName: '',
+    gender: '',
     age: '',
     location: {
         country: '',
@@ -43,6 +44,14 @@ export class ProfileEditComponent implements OnInit {
     this.session.isLoggedIn()
     .subscribe(
       (user) => this.successCb(user)
+    );
+  }
+
+  updateProfile(formSignUp){
+    this.session.update(this.formSignUp)
+    .subscribe(
+      (user) => this.successCb(user),
+      (err) => this.errorCb(err)
     );
   }
 
