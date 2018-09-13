@@ -58,8 +58,9 @@ export class MsgConversationComponent implements OnInit {
   sendChildMsg(form){
     this._messages.postMsg(this.Id, form)
     .subscribe(
-      (msgs) => this.successCb2(msgs),
+      (msgs) => {this.successCb2(msgs); window.location.reload()},
       (err) => this.errorCb(err)
+      
     );
   }
 
@@ -78,6 +79,7 @@ export class MsgConversationComponent implements OnInit {
     this.mainMsg = msgs;
     this.error = null;
     console.log(this.mainMsg)
+    
   }
 
   successCb3(allMsgs) {
