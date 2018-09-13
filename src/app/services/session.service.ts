@@ -22,6 +22,10 @@ export class SessionService {
     return this.http.post(`${this.mainURL}/signup`, user).pipe(map(res => res.json()),catchError(this.handleError));
   }
 
+  update(user) {
+    return this.http.post(`${this.mainURL}/edit`, user, {withCredentials : true}).pipe(map(res => res.json()),catchError(this.handleError));
+  }
+
   login(user) {
     return this.http.post(`${this.mainURL}/login`, user,  {withCredentials : true}).pipe(map(res => res.json()), catchError(this.handleError));
   }

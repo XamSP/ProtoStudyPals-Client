@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   user: any;
   error: string;
   privateData: any = '';
+  myRoute: boolean = false;
 
   constructor(
     private router: Router,
@@ -26,6 +27,8 @@ export class DashboardComponent implements OnInit {
     .subscribe(
       (user) => this.successCb(user)
     );
+
+    
   }
 
   viewMsgs(){

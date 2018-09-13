@@ -50,10 +50,62 @@
 </div>
 </div> -->
 
+<div *ngIf="mySessions" class="container text-center">
+    <div class="row">
+      <div *ngFor="let currentMySession of mySessions.mySessions"  class="col my-2">
+        <div class="mx-2 my-3 bg-light p-2 rounded h-100 sessiondiv">
+            <div *ngFor="let mySubject of currentMySession.subjects">
+              <h4>Subject: {{mySubject.title}}</h4>
+            </div>
+            <h5>Host: {{currentMySession.host.username}}</h5>
+            <div>
+              <h5>Users Attending:</h5>
+              <ul *ngFor="let myUser of currentMySession.usersAttending">
+                <li>{{myUser.username}}</li>
+              </ul>
+            </div>
+            <div  *ngIf="user._id == currentMySession.host._id">
+              <h5>Requests:</h5>
+              <ul *ngFor="let myReqUser of currentMySession.requestsFromUsers">
+                <li>{{ myReqUser.username }}</li>
+              </ul>
+            </div>
+            <h5>Description: {{currentMySession.description}}</h5>
+            <div *ngIf="currentMySession.tags">
+              <h5>Tags:</h5>
+              <ul *ngFor="let myTag of currentMySession.tags">
+                <li>{{myTag}}</li>
+              </ul>
+            </div>
+            <!-- Add pipe for Date -->
+            <!-- <div *ngIf="currentSession.dateOfSession"   class="list-group-item">
+                    <p>Date: {{currentSession.dateOfSession }}</p>
+                  </div> -->
+            <!-- | Date: mm/dd/yyyy -->
+            <h5>Level: {{currentMySession.level}}</h5>
+           
+              <a href="#" class="mt-2 mx-auto mb-2 mt-2 align-bottom">...</a>
+      
+              <!-- <button (click)="joinSession(currentMySession._id)" >Join!</button> -->
+      
+          </div>
+        </div>
+  
+  
+        <!-- Add pipe for Date -->
+        <!-- <div *ngIf="currentSession.dateOfSession"   class="list-group-item">
+                <p>Date: {{currentSession.dateOfSession }}</p>
+              </div> -->
+        <!-- | Date: mm/dd/yyyy -->
+  
+      </div>
+  
+  
+  
+    </div>
 
 
-
-<div *ngIf="sessions" class="container text-center">
+<div *ngIf="!mySessions" class="container text-center">
   <div class="row">
     <div *ngFor="let currentSession of sessions"  class="col my-2">
       <div class="mx-2 my-3 bg-light p-2 rounded h-100 sessiondiv">

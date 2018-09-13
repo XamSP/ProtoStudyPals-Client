@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from "@angular/router";
 import { routes } from './app.routing';
 import { HttpModule } from '@angular/http';
@@ -22,6 +22,7 @@ import { MessageFormComponent } from './message-form/message-form.component';
 import { MsgConversationComponent } from './msg-conversation/msg-conversation.component';
 import { SessionQueryBarComponent } from './session-query-bar/session-query-bar.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
+import { LandPageComponent } from './land-page/land-page.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     MsgConversationComponent,
     SessionQueryBarComponent,
     ProfileEditComponent,
+    LandPageComponent,
     // FileSelectDirective,
     
   ],
@@ -49,6 +51,7 @@ import { ProfileEditComponent } from './profile-edit/profile-edit.component';
     // FileUploadModule
   ],
   providers: [SessionService, RetrieveSessionService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

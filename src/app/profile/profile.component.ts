@@ -11,6 +11,7 @@ export class ProfileComponent implements OnInit {
   user: any;
   error: string;
   privateData: any = '';
+  showEdit: boolean;
   
   constructor(private session: SessionService) { }
 
@@ -19,10 +20,19 @@ export class ProfileComponent implements OnInit {
     .subscribe(
       (user) => this.successCb(user)
     );
+    this.showEdit = false;
   }
 
   //
   
+  showIt(){
+    if (this.showEdit === true) {
+      return this.showEdit = false;
+    } else {
+      return this.showEdit = true;
+    }
+  }
+
   errorCb(err) {
     this.error = err;
     this.user = null;
