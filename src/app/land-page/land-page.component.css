@@ -1,0 +1,134 @@
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
+.partner-section{
+background: white;
+}
+
+
+.testimonial-photo{
+    width:200px;
+    height: 200px;
+}
+
+
+.testimonial-section{
+    background-color: rgb(89, 142, 177);
+}
+
+.logo-section{
+    background-color: rgb(238, 235, 235);
+}
+
+.particle-section {
+    padding-top: 10%;
+    padding-bottom:10%;
+    min-height:35%;
+}
+
+.whatis-section{
+    background-color: rgb(238, 235, 235);
+}
+
+h1{
+    font-size: calc(16px + 5vw);
+    color:rgb(127, 64, 199);
+}
+
+h2{
+    font-size: calc(12px + 2.5vw);
+    color:rgb(127, 64, 199);
+}
+
+h3{
+    font-size:calc(8px + 2vw);
+    color:rgb(127, 64, 199);
+}
+h4{
+    font-size:calc(8px + 1.5vw);
+    color: rgb(127, 64, 199);
+}
+
+p{
+    font-size:calc(8px + 1vw);
+}
+
+
+
+
+
+/* Caroucel */
+.col-center {
+	margin: 0 auto;
+	float: none !important;
+}
+.carousel {
+	margin: 50px auto;
+	padding: 0 70px;
+}
+.carousel .item {
+	color: #999;
+	font-size: 14px;
+    text-align: center;
+	overflow: hidden;
+    min-height: 290px;
+}
+.carousel .item .img-box {
+	width: 180px;
+	height: 180px;
+	margin: 0 auto;
+	padding: 5px;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+}
+.carousel .img-box img {
+	width: 100%;
+	height: 100%;
+	display: block;
+	border-radius: 50%;
+}
+.carousel .testimonial {
+	padding: 30px 0 10px;
+}
+.carousel .overview {	
+	font-style: italic;
+}
+.carousel .overview b {
+	text-transform: uppercase;
+	color: rgb(127, 64, 199);
+}
+.carousel .carousel-control {
+	width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    top: 50%;
+	background: none;
+}
+.carousel-control i {
+    font-size: 68px;
+	line-height: 42px;
+    position: absolute;
+    display: inline-block;
+	color: rgba(0, 0, 0, 0.8);
+    text-shadow: 0 3px 3px #110d0d, 0 0 0 #000;
+}
+.carousel .carousel-indicators {
+	bottom: -40px;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+	width: 10px;
+	height: 10px;
+	margin: 1px 3px;
+	border-radius: 50%;
+}
+.carousel-indicators li {	
+	background: #999;
+	border-color: transparent;
+	box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+}
+.carousel-indicators li.active {	
+	background: #555;		
+	box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
+}
