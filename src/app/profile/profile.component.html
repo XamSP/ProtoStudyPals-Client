@@ -1,15 +1,19 @@
 <div class="form-container container">
-    <h2 class="text-center">User Profile</h2>
-    <p>Username: {{user.username}}</p>
-    <p>First name: {{user.firstName}}</p>
-    <p>Last name: {{user.lastName}}</p>
-    <p>Role: {{user.role}}</p>
-    <p>Location: {{user.location.address}}, {{user.location.city}},<br>{{user.location.state}}, {{user.location.zipcode}}, {{user.location.country}}.</p>
+    <h2 class="text-center">{{thisUser.username}} Profile</h2>
+    <p>First name: {{thisUser.firstName}}</p>
+    <p>Last name: {{thisUser.lastName}}</p>
+    <p>Role: {{thisUser.role}}</p>
+    <h4>Location: </h4>
+    <p> {{thisUser.location.address}}, {{thisUser.location.city}},
+        {{thisUser.location.state}}, {{thisUser.location.zipcode}}, 
+        {{thisUser.location.country}}.
+    </p>
 </div>
 
 <div *ngIf="showEdit">
     <app-profile-edit></app-profile-edit>
 </div>
 
-<button (click)="showIt()">Edit Yourself!</button>
-
+<div *ngIf="thisUser._id == user._id">
+    <button (click)="showIt()">Edit Yourself!</button>
+</div>

@@ -22,7 +22,7 @@ export class ProfileEditComponent implements OnInit {
     gender: '',
     age: '',
     location: {
-        country: '',
+        country: 'United States',
         state: '',
         city: '',
         address: '',
