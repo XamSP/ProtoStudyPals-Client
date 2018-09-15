@@ -16,9 +16,12 @@
       <textarea class="form-control" id="exampleFormControlTextarea1" [(ngModel)]="formSession.childMsgContent" name="childMsgContent" rows="3"></textarea>
     </div>
   </div>
-  <button (click)="sendMsg(formSession)"> Send! </button>
-  <!-- {{#if message}}
+  <div class="text-right container">
+    <button  class="btn btn-primary btn-lg shadow ml-auto"(click)="sendMsg(formSession)"> Send! </button>
+    </div>
+    <!-- {{#if message}}
+  </div>
     <div class="error-message">{{ message }}</div>
   {{/if}} -->
 
-  </form>
+  </form> 
