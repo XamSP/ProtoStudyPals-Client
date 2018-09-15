@@ -1,19 +1,9 @@
+<app-nav-bar></app-nav-bar>
 
   <div *ngIf="objMsgs">
     <div *ngFor="let msg of objMsgs.msgs" class="form-container container text-center my-5">
-      <a [routerLink]="['/messenger', msg._id]">subject: {{msg.subject}} Users: {{msg.users.length}}</a>   </div>
-      
-      <!-- Make sure to add the right route for the actual conversation -->
-      <!-- <a href="/messenger/{{this.id}}" class="">{{this.subject}}</a> <br> -->
-      <!-- <ul *ngFor="let currentUser of msg.users">
-        <li><a [routerLink]="['/profile', currentUser._id]">Users: {{currentUser.username}}</a></li>
-      </ul> -->
-   
- 
-
-  
-  <!-- Make sure to add the right route for the msg form -->
-  <!-- <a href="/messenger/create" class="">Create Message</a> -->
+      <a [routerLink]="['/messenger', msg._id]">subject: {{msg.subject}} Users: {{msg.users.length}}</a>   
+    </div>
 </div>
 
 <div *ngIf="msgForm" class="container">
