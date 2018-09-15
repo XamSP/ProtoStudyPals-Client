@@ -34,7 +34,7 @@
                      
                       <li class="p-2">
                           <a href="#" class="d-flex justify-content-between">
-                              <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
+                              <img style="width: 100px; height: 100px;" [src]="thisMsg.users[0].imgPath" alt="avatar" class="avatar rounded-circle d-flex align-self-center mr-2 z-depth-1">
                               <div class="text-small">
                                   <strong *ngFor="let currentUser of thisMsg.users; let i = index">{{currentUser.username}}<span *ngIf="i !== mainMsg.theMsg.users.length -1">, </span></strong>
                                   <p class="last-message text-muted">{{thisMsg.texts[0].msg}}</p>
@@ -59,7 +59,7 @@
                   <ul *ngFor="let currentMsg of mainMsg.theMsg.texts; let i = index" class="list-unstyled chat">
                       
                     <li *ngIf="currentMsg.user._id == user._id" class="d-flex justify-content-between mb-4">
-                          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-6" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
+                          <img style="width: 100px; height: 100px;" [src]="currentMsg.user.imgPath" alt="avatar" class="avatar rounded-circle mr-2 ml-lg-3 ml-0 z-depth-1">
                           <div class="chat-body white p-3 ml-2 z-depth-1">
                               <div class="header">
                                   <strong class="primary-font">{{currentMsg.user.username}}</strong>
@@ -82,7 +82,7 @@
                                 {{currentMsg.msg}}                               
                               </p>
                           </div>
-                          <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-5" alt="avatar" class="avatar rounded-circle mr-0 ml-3 z-depth-1">
+                          <img style="width: 100px; height: 100px;" [src]="currentMsg.user.imgPath" alt="avatar" class="avatar rounded-circle mr-0 ml-3 z-depth-1">
                       </li>
                     
                       <li *ngIf="i == mainMsg.theMsg.texts.length -1" class="white"> <!---->
