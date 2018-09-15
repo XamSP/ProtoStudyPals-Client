@@ -8,7 +8,7 @@ export const environment = {
   MONGODB_URI: 'ProtoStudyPals',
   MAIN_URL: "http://localhost:3000",
   ANG_URL: "http://localhost:4200",
-  SESSION_URL: '',
+  SESSION_URL: "http://localhost:4200/sessions",
 };
 
 /*

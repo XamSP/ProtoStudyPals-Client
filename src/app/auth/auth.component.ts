@@ -21,7 +21,10 @@ export class AuthComponent implements OnInit {
   privateData: any = '';
   signupform: boolean;
 
-  constructor(private router: Router, private session: SessionService) { }
+  constructor(
+    private router: Router, 
+    private session: SessionService
+  ) { }
 
   ngOnInit() {
     this.session.isLoggedIn()
@@ -76,6 +79,9 @@ export class AuthComponent implements OnInit {
   successCb(user) {
     this.user = user;
     this.error = null;
+    if (this.user !== null) {
+    this.router.navigate(['board'])
+    } 
   }
 }
 
