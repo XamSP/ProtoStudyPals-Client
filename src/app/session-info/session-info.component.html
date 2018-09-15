@@ -1,3 +1,37 @@
-<p>
-  session-info works!
-</p>
+<div>
+  <h3>Subject: {{sessions.subjects[0].title}}</h3>
+  <p>Title: {{sessions.title}}</p>
+  <p (click)="goToProfile(sessions.host._id)">Host: {{sessions.host.username}}</p>
+  <p>Level: {{sessions.level}}</p>
+  <h4>Location:</h4>
+  <p>Country: {{sessions.location.country}}</p>
+  <p>State: {{sessions.location.state}}</p>
+  <p>City: {{sessions.location.city}}</p>
+  <p>Address: {{sessions.location.address}}</p>
+  <p>Zipcode: {{sessions.location.zipcode}}</p>
+  <p>Date: {{sessions.dateOfSession}}</p>
+  
+  <h4>Users Attending:</h4>
+  <div *ngFor="let currentUser of sessions.usersAttending">
+    <p (click)="goToProfile(currentUser._id)">{{currentUser.username}}</p>
+  </div>
+  
+<div *ngIf="sessions.host_id == user._id">
+  <h4>Requests :</h4>
+  <div *ngFor="let currentReqUser of sessions.requestsFromUsers">
+    <p (click)="goToProfile(currentReqUser._id)">{{currentReqUser.username}}</p>
+  </div>
+</div>
+  <!-- <h4>Feedbacks:</h4>
+  <div *ngFor="let currentFeedback of sessions.feedbacks">
+    <p>{{currentFeedback.feedback}}</p>
+    <p (click)="goToProfile(currentFeedback.user._id)">{{currentFeedback.user}}</p>
+    <p>{{currentFeedback.date}}</p>
+  </div> -->
+
+
+    <div *ngIf="!joinCondition">  
+      <button (click)="joinSession(sessions._id)" >Join!</button>
+    </div>
+  
+</div>

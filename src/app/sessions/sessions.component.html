@@ -1,6 +1,14 @@
 <div *ngIf="sessionForm">
   <app-session-form ></app-session-form>
 </div>
+
+<h1>My Sessions!</h1>
 <app-session-board></app-session-board>
-<button (click)="sessionFormDisplay()"> Make a Session</button>
-  
+
+<div *ngIf="!sessionForm">
+  <button (click)="sessionFormDisplay()"> Make a Session</button>
+</div>
+
+<div *ngIf="sessionForm">
+  <button (click)="sessionFormDisplay()"> Hide </button>
+</div>
