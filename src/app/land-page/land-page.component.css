@@ -132,3 +132,15 @@ p{
 	background: #555;		
 	box-shadow: inset 0 2px 1px rgba(0,0,0,0.2);
 }
+
+
+.subscribe-section{
+	background-color: rgb(127, 64, 199) !important;
+}
+
+.subscribe-section > h3{
+	color: white !important;
+}
+
+/* Footer */
+
