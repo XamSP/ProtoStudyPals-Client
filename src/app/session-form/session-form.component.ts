@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { SessionService } from '../services/session.service';
 import { RetrieveSessionService } from '../services/retrieve-session.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-session-form',
@@ -28,11 +30,13 @@ export class SessionFormComponent implements OnInit {
       address: '',
       zipcode: ''
     },
+    dateOfSession: ''
   };
 
   constructor(
     private _retrieveSession: RetrieveSessionService,
-    private _session: SessionService
+    private _session: SessionService,
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -51,8 +55,9 @@ export class SessionFormComponent implements OnInit {
   postSession() {
     this._retrieveSession.createSession(this.formSession, this.user)
       .subscribe(
-        (session) => this.currentSession = session
-      );
+        (session) => {this.currentSession = session
+        this.router.navigate(['sessions'])
+        });
   }
   
   successCb2(user) {

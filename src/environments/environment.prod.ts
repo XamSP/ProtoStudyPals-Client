@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   SECRET: 'angular auth passport secret shh',
   MONGODB_URI: 'ProtoStudyPals',
-  MAIN_URL: "http://localhost:3000",
-  ANG_URL: "http://localhost:4200",
-  SESSION_URL: "http://localhost:4200/sessions",
+  MAIN_URL: "https://study-pals.herokuapp.com",
+  ANG_URL: "https://study-pals.herokuapp.com",
+  SESSION_URL: "https://study-pals.herokuapp.com/sessions",
 };

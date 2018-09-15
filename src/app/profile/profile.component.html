@@ -15,5 +15,11 @@
 </div>
 
 <div *ngIf="thisUser._id == user._id">
+  <div *ngIf="!showEdit">  
     <button (click)="showIt()">Edit Yourself!</button>
+  </div>
+
+  <div *ngIf="showEdit">  
+    <button (click)="showIt()">Hide</button>
+  </div>
 </div>
