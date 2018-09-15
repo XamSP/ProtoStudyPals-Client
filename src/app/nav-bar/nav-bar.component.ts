@@ -1,32 +1,35 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 import { SessionService } from '../services/session.service';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css'],
+  selector: 'app-nav-bar',
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.css'],
   providers: [SessionService]
 })
+export class NavBarComponent implements OnInit {
 
-export class DashboardComponent implements OnInit {
-  // @Input() 
   user: any;
   error: string;
-  privateData: any = '';
-  myRoute: boolean = false;
 
   constructor(
+    private _location: Location,
     private router: Router,
     private session: SessionService
-  ) {  }
+
+  ) { }
 
   ngOnInit() {
     this.session.isLoggedIn()
     .subscribe(
       (user) => this.successCb(user)
-    );    
+    );
+  }
+
+  backClicked() {
+    this._location.back();
   }
 
   viewMsgs(){
@@ -61,6 +64,5 @@ export class DashboardComponent implements OnInit {
       this.router.navigate([''])
     }
   }
-
 
 }

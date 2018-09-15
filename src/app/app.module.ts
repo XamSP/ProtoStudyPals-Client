@@ -24,6 +24,7 @@ import { SessionQueryBarComponent } from './session-query-bar/session-query-bar.
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { LandPageComponent } from './land-page/land-page.component';
 import { SessionInfoComponent } from './session-info/session-info.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SessionInfoComponent } from './session-info/session-info.component';
     ProfileEditComponent,
     LandPageComponent,
     SessionInfoComponent,
+    NavBarComponent,
     // FileSelectDirective,
     
   ],
