@@ -30,6 +30,10 @@ export class RetrieveSessionService {
     return this.http.get(`${this.apiURL}/session-api/my-sessions`, {withCredentials : true}).pipe(map(res => res.json()),catchError(this.handleError));
   }
 
+  retrieveUser(id) {
+    return this.http.get(`${this.apiURL}/users-api/${id}`, {withCredentials : true}).pipe(map(res => res.json()),catchError(this.handleError));
+  }
+
   retrieveSubjects() {
     //console.log(this.http.get(`${this.apiURL}/subtags/subject`).pipe(map(res => res.json()),catchError(this.handleError)));
   
