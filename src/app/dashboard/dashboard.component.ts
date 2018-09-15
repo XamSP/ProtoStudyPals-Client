@@ -43,6 +43,14 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['profile', id]);
   }
 
+  logout() {
+    this.session.logout()
+      .subscribe(
+        () => this.successCb(null),
+        (err) => this.errorCb(err)
+      );
+  }
+
   errorCb(err) {
     this.error = err;
     this.user = null;
@@ -51,13 +59,10 @@ export class DashboardComponent implements OnInit {
   successCb(user) {
     this.user = user;
     this.error = null;
+    if(this.user == null) {
+      this.router.navigate([''])
+    }
   }
 
-  logout() {
-    this.session.logout()
-      .subscribe(
-        () => this.successCb(null),
-        (err) => this.errorCb(err)
-      );
-  }
+
 }

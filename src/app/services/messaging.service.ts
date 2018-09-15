@@ -2,14 +2,16 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {map, catchError} from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessagingService {
 
-  angURL: string = "http://localhost:4200";
-  apiURL: string = "http://localhost:3000";
+  angURL: string = environment.ANG_URL;
+  apiURL: string = environment.MAIN_URL;
 
   constructor(private http: Http) { }
 

@@ -66,6 +66,9 @@ export class SignupComponent implements OnInit {
   successCb(user) {
     this.user = user;
     this.error = null;
+    if (this.user !== null) {
+      this.router.navigate(['board'])
+    }
   }
 
 }

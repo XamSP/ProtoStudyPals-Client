@@ -23,6 +23,7 @@ import { MsgConversationComponent } from './msg-conversation/msg-conversation.co
 import { SessionQueryBarComponent } from './session-query-bar/session-query-bar.component';
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 import { LandPageComponent } from './land-page/land-page.component';
+import { SessionInfoComponent } from './session-info/session-info.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { LandPageComponent } from './land-page/land-page.component';
     SessionQueryBarComponent,
     ProfileEditComponent,
     LandPageComponent,
+    SessionInfoComponent,
     // FileSelectDirective,
     
   ],

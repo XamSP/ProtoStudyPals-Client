@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Inject  } from '@angular/core';
 import { SessionService } from '../services/session.service';
 import { RetrieveSessionService } from '../services/retrieve-session.service';
 import { DOCUMENT } from '@angular/common';
+import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-session-board',
@@ -22,6 +24,7 @@ export class SessionBoardComponent implements OnInit {
   constructor(
     private _retrieveSession: RetrieveSessionService,
     private _session: SessionService,
+    private router: Router,
     @Inject(DOCUMENT) private document: Document
   ) { }
 
@@ -33,7 +36,7 @@ export class SessionBoardComponent implements OnInit {
 
     console.log(this.document.location.href)
 
-    if (this.document.location.href == "http://localhost:4200/sessions") {
+    if (this.document.location.href == environment.SESSION_URL) {
       this._retrieveSession.retrieveMySession()
       .subscribe(
         (mySession) => this.successCb3(mySession)
@@ -72,9 +75,14 @@ export class SessionBoardComponent implements OnInit {
     console.log(this.mySessions)
   }
 
+  goToSession(id){
+    this.router.navigate(['sessions', id])
+  }
+
   joinSession(sessionId){
     this._retrieveSession.joinTheSession(sessionId).subscribe(
-      (session) => console.log(session)
-    );
+      (session) => {console.log(session)
+      this.router.navigate(['sessions'])
+      });
   }
 }

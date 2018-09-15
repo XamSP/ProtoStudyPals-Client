@@ -29,11 +29,11 @@
         <br>
         <input type="number" [(ngModel)]="formSignUp.age" name="age" class="form-control" />
         <br>
-        <label> Location </label>
+        <!-- <label> Location </label>
         <br>
         <br>
         <label> Country* </label>
-        <!-- <input type="text" [(ngModel)]="formSignUp.location.country" name="location.country"/> -->
+         <input type="text" [(ngModel)]="formSignUp.location.country" name="location.country"/>
         <select [(ngModel)]="formSignUp.location.country" name="location.country" class="form-control">
           <option value="United States">United States</option>
           <option value="United Kingdom">United Kingdom</option>
@@ -278,9 +278,9 @@
           <option value="Zimbabwe">Zimbabwe</option>
         </select>
         <br>
-        <!-- <div *ngIf="formSignUp.location.country.value == 'United States'"> -->
+         <div *ngIf="formSignUp.location.country.value == 'United States'"> 
         <label> State* </label>
-        <!-- <input type="text" [(ngModel)]="formSignUp.location.state" name="location.state"/> -->
+         <input type="text" [(ngModel)]="formSignUp.location.state" name="location.state"/> 
         <select [(ngModel)]="formSignUp.location.state" name="location.state" class="form-control">
           <option value="" selected="selected">Select a State</option>
           <option value="AL">Alabama</option>
@@ -336,7 +336,7 @@
           <option value="WY">Wyoming</option>
         </select>
         <br>
-        <!-- </div>    -->
+          
         <br>
         <label> City* </label>
         <br>
@@ -349,13 +349,13 @@
         <label> Zipcode* </label>
         <br>
         <input type="number" [(ngModel)]="formSignUp.location.zipcode" name="location.zipcode" class="form-control" />
-        <br>
+        <br> -->
         <label> Email </label>
         <br>
         <input type="email" [(ngModel)]="formSignUp.email" name="email" class="form-control" />
         <br>
-        <label> About you </label>
-        <br>
+        <!-- <label> About you </label>
+        <br> -->
         <input type="text" [(ngModel)]="formSignUp.about" name="about" class="form-control" />
         <br>
         <label> Password </label>

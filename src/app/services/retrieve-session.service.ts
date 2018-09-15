@@ -2,13 +2,15 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {map, catchError} from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import { environment } from '../../environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class RetrieveSessionService {
-  angURL: string = "http://localhost:4200";
-  apiURL: string = "http://localhost:3000";
+  angURL: string = environment.ANG_URL;
+  apiURL: string = environment.MAIN_URL;
 
   constructor(private http: Http) { }
 
@@ -17,7 +19,11 @@ export class RetrieveSessionService {
   }
 
   retrieveSession() {
-    return this.http.get(`${this.apiURL}/session-api/`).pipe(map(res => res.json()),catchError(this.handleError));
+    return this.http.get(`${this.apiURL}/session-api/`, {withCredentials : true}).pipe(map(res => res.json()),catchError(this.handleError));
+  }
+
+  retrieveThisSession(id) {
+    return this.http.get(`${this.apiURL}/session-api/${id}`, {withCredentials : true}).pipe(map(res => res.json()),catchError(this.handleError));
   }
 
   retrieveMySession() {
@@ -27,7 +33,7 @@ export class RetrieveSessionService {
   retrieveSubjects() {
     //console.log(this.http.get(`${this.apiURL}/subtags/subject`).pipe(map(res => res.json()),catchError(this.handleError)));
   
-    return this.http.get(`${this.apiURL}/subtags-api/subject`).pipe(map(res => res.json()),catchError(this.handleError));
+    return this.http.get(`${this.apiURL}/subtags-api/subject`, {withCredentials : true}).pipe(map(res => res.json()),catchError(this.handleError));
   }
 
   retrieveSubjectId(id) {
