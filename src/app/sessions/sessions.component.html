@@ -5,10 +5,10 @@
 <h1>My Sessions!</h1>
 <app-session-board></app-session-board>
 
-<div *ngIf="!sessionForm">
-  <button (click)="sessionFormDisplay()"> Make a Session</button>
+<div *ngIf="!sessionForm" class="container text-center">
+  <button class="btn btn-light btn-lg shadow my-5" (click)="sessionFormDisplay()"> Make a Session</button>
 </div>
 
-<div *ngIf="sessionForm">
+<div *ngIf="sessionForm" class="btn btn-light btn-lg shadow my-5">
   <button (click)="sessionFormDisplay()"> Hide </button>
 </div>

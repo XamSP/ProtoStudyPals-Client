@@ -8,18 +8,21 @@
         {{thisUser.location.state}}, {{thisUser.location.zipcode}}, 
         {{thisUser.location.country}}.
     </p>
+
+  <div *ngIf="thisUser._id == user._id" class="container text-center my-5">
+    <div *ngIf="!showEdit">  
+      <button class="btn btn-primary shadow" (click)="showIt()">Update Info!</button>
+    </div>
+
+    <div *ngIf="showEdit">  
+      <button class="btn btn-primary shadow" (click)="showIt()">Hide</button>
+    </div>
+</div>
+
 </div>
 
 <div *ngIf="showEdit">
     <app-profile-edit></app-profile-edit>
 </div>
 
-<div *ngIf="thisUser._id == user._id">
-  <div *ngIf="!showEdit">  
-    <button (click)="showIt()">Edit Yourself!</button>
-  </div>
 
-  <div *ngIf="showEdit">  
-    <button (click)="showIt()">Hide</button>
-  </div>
-</div>
