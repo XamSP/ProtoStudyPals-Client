@@ -19,4 +19,14 @@
 <div *ngIf="msgForm" class="container">
   <app-message-form></app-message-form>
 </div>
-<div class="container text-center my-5"><button class= "my-2 mx-auto btn btn-info btn-lg shadow" (click)="msgFormDisplay()"> Make a Message</button></div>
+<div class="container text-center my-5">
+  
+  <div *ngIf="!msgForm">
+    <button class= "my-2 mx-auto btn btn-info btn-lg shadow" (click)="msgFormDisplay()"> Make a Message</button>
+  </div>
+
+  <div *ngIf="msgForm">
+      <button class= "my-2 mx-auto btn btn-info btn-lg shadow" (click)="msgFormDisplay()"> Hide Message</button>
+    </div>
+
+</div>
